@@ -25,7 +25,24 @@ SECRET_KEY = 'django-insecure-@6itx!o=rvl)33yt^ds5r#*iga8+i3(f%c--@8xatzekx1(q97
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+        "0.0.0.0",
+        "118.234.180.19",
+        "k-data.co.uk"
+]
+
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
+SECURE_SSL_REDIRECT = False
+SECURE_HSTS_SECONDS = 0
+SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+SECURE_HSTS_PRELOAD = False
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+CSRF_TRUSTED_ORIGINS = [
+            "https://k-data.co.uk",
+            "http://k-data.co.uk"
+]
 
 
 # Application definition
