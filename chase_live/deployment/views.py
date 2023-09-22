@@ -10,15 +10,17 @@ def home(request):
 	return render(request, 'deployment/home.html', context)
 
 class TraderListView(ListView):
-	UpdateStatus()
 	model = Trader
 	template_name = 'deployment/home.html'
 	context_object_name = 'traders'
 	ordering = ['title']
 	paginate_by = 10
 
+	def get(self, request, *args, **kwargs):
+		UpdateStatus()
+		return super().get(request, *args, **kwargs)
+
 class TraderPosListView(ListView):
-	UpdateStatus()
 	model = Position
 	template_name = 'deployment/trader_pos.html'
 	context_object_name = 'positions'
@@ -30,7 +32,6 @@ class TraderPosListView(ListView):
 
 
 class TraderOrderListView(ListView):
-	UpdateStatus()
 	model = Order
 	template_name = 'deployment/trader_orders.html'
 	context_object_name = 'orders'
